@@ -14,3 +14,7 @@
 - Run the node-red instance
   `node script/node-red-app.js`
 
+### `server.js` is a simple REST POST endpoint
+
+Run it with the command `node server.js`
+
