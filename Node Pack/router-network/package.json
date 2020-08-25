@@ -1,0 +1,21 @@
+{
+  "name": "router-network",
+  "version": "1.0.0",
+  "description": "Proof of Concept for router.network made on Node-Red",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "teknicus",
+  "license": "ISC",
+  "node-red" : {
+    "nodes": {
+        "router-mqtt": "router-mqtt.js",
+        "router-rest": "router-rest.js",
+        "router-ws": "router-ws.js",
+        "router-function": "router-function.js",
+        "router-redis": "router-redis.js"
+        
+    }
+  }
+}

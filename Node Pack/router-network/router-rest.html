@@ -1,0 +1,61 @@
+<script type="text/html" data-template-name="router_rest">
+    <div class="form-row">
+        <label for="node-input-mode-simple"><i class="fa fa-tag"></i> Simple Mode</label>
+        <input type="radio" id="node-input-mode-simple">
+
+        <label for="node-input-mode-advanced"><i class="fa fa-tag"></i> Advanced Mode</label>
+        <input type="radio" id="node-input-mode-advanced">
+
+    </div>
+    <div class="form-row">
+        <label for="node-input-endpoint"><i class="fa fa-tag"></i> Endpoint</label>
+        <input type="text" id="node-input-endpoint" placeholder="endpoint URL">
+    </div>
+    <div class="form-row">
+        <label for="node-input-channel-id"><i class="fa fa-tag"></i> Channel ID</label>
+        <input type="text" id="node-input-channel-id" placeholder="Channel ID">
+    </div>
+    <div class="form-row">
+        <a>Load Balancing</a><br>
+        
+        <select id="node-input-load-balancing" style="width:125px !important">
+            <option value="0">1</option>
+            <option value="1">2</option>
+            <option value="2">3</option>
+            <option value="2">4</option>
+            <option value="2">5</option>
+            <option value="2">6</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Response Logic</label>
+        <input type="text" id="node-input-name" placeholder="    ">
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('router_rest',{
+        category: 'router.network',
+        defaults: {
+            name: {value:""},
+            datatype: {value:"auto",required:true}
+        },
+        inputs:0,
+        outputs:1,
+        icon: "bridge.svg",
+        label: function() {
+            return this.name||this.topic||"rest";
+        },
+        labelStyle: function() {
+            return this.name?"node_label_italic":"";
+        },
+        oneditprepare: function() {
+            if (this.qos === undefined) {
+                $("#node-input-qos").val("2");
+            }
+            if (this.datatype === undefined) {
+                $("#node-input-datatype").val("auto");
+            }
+        }
+    });
+</script>
